@@ -1,0 +1,5 @@
+{
+    "admin_email": ["support@admin.com", "support@dev.com"],
+    "admin_pwd": "admin2021",
+    "maxUploadLimit": 10
+}

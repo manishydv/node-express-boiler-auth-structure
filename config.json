@@ -1,0 +1,38 @@
+{
+    "development": {
+        "PORT": 3000,
+        "HOST": "http://localhost:4200",
+        "MONGODB_URI": "mongodb://localhost:27017/auth_structure",
+        "JWT_SECRET": "SECRET#123",
+        "JWT_EXP": "1d",
+        "SALT_ROUNDS": 10,
+        "REFRESH_TOKEN_SECRET": "VmVyeVBvd2VyZnVsbFNlY3JldA==",
+        "REFRESH_TOKEN_EXPIRESIN": "2d",
+        "NODEMAILER_USERID": "nodemailer@gmail.com",
+        "NODEMAILER_PWD": "password123"
+    },
+    "staging": {
+        "PORT": 3001,
+        "HOST": "http://localhost:4200",
+        "MONGODB_URI": "mongodb://localhost:27017/staging_auth_structure",
+        "JWT_SECRET": "SECRET#123",
+        "JWT_EXP": "1d",
+        "SALT_ROUNDS": 10,
+        "REFRESH_TOKEN_SECRET": "VmVyeVBvd2VyZnVsbFNlY3JldA==",
+        "REFRESH_TOKEN_EXPIRESIN": "2d",
+        "NODEMAILER_USERID": "nodemailer@gmail.com",
+        "NODEMAILER_PWD": "password123"
+    },
+    "production": {
+        "PORT": 3002,
+        "HOST": "http://localhost:4200",
+        "MONGODB_URI": "mongodb://localhost:27017/prod_auth_structure",
+        "JWT_SECRET": "SECRET#123",
+        "JWT_EXP": "1d",
+        "SALT_ROUNDS": 10,
+        "REFRESH_TOKEN_SECRET": "VmVyeVBvd2VyZnVsbFNlY3JldA==",
+        "REFRESH_TOKEN_EXPIRESIN": "2d",
+        "NODEMAILER_USERID": "nodemailer@gmail.com",
+        "NODEMAILER_PWD": "password123"
+    }
+}
