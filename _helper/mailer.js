@@ -24,12 +24,12 @@ module.exports = {
                  </tr>
                  <tr>
                   <td>
-                    <p>Welcome to <b>Landingi builder!</b></p>
+                    <p>Welcome to <b> Project Name < XYZ >!</b></p>
                   </th>
                 </tr>
                 <tr>
                   <td>
-                  <p>Love & Respect<br>builder</p>
+                  <p>Love & Respect<br>Project Name < XYZ ></p>
                   </td>
                 </tr>
                 </tbody>
@@ -37,14 +37,14 @@ module.exports = {
       var mailOptions = {
         to: email,
         from: process.env.NODEMAILER_USERID,
-        subject: 'Welcome to landingi builder.',
+        subject: 'Welcome to Project Name < XYZ >.',
         html: mailBodyTemplate
         };
 
       transporter.sendMail(mailOptions, (err, info) => {
-        console.log("==mail---sendSignupMail===");
-        if (err)console.log("----err----",err);
-          console.log("-----info--- ",info);
+        console.log("==MAIL_SEND_SIGNUP_MAIL===");
+        if (err)console.log("----ERROR----",err);
+          console.log("----INFO--- ",info);
       });
 
     },
@@ -67,7 +67,7 @@ module.exports = {
                 </tr>
                 <tr>
                   <td>
-                  <p>Love & Respect<br>builder</p>
+                  <p>Love & Respect<br>Project Name < XYZ ></p>
                   </td>
                 </tr>
                 </tbody>
@@ -80,9 +80,9 @@ module.exports = {
           };
 
         transporter.sendMail(mailOptions, (err, info) => {
-          console.log("==mail---sendResetPasswordLink===");
-          if (err)console.log("----err----",err);
-            console.log("-----info--- ",info);
+          console.log("==SEND_REQUEST_PASSWORD_LINK===");
+          if (err)console.log("----ERROR----",err);
+            console.log("-----INFO--- ",info);
         });
     },
 };

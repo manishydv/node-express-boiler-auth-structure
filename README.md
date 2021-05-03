@@ -1,2 +1,2 @@
-# node-express-boiler-auth-structure
+# node-express-structure
 Node Express Project Structure. [development and production mode].

@@ -5,18 +5,19 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cors = require("cors");
-const { v4: uuidv4 } = require('uuid');
 const compression = require('compression');
 const bodyParser = require("body-parser");
-const connect_database = require('./config/db_connect');
+const appConfig = require('./configs/app_setting');
 const cookieParser = require('cookie-parser');
+var passport = require('passport');
 const logger = require('morgan');
-const indexRouter = require('./routes/index');
+const apiRouter = require('./routes/api.routes');
+const webRouter = require('./routes/web.routes');
 
 const app = express();
 
 // Connect Database
-connect_database();
+appConfig.connectDataBase();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -36,30 +37,28 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use((req, res, next) => {
-    req.identifier = uuidv4();
-    const logString = `a request has been made with the following uuid [${req.identifier}] ${req.url} ${req.headers['user-agent']} ${JSON.stringify(req.body)}`;
-    console.info(logString);
-    next();
-});
+
+//calling print_request_logger
+appConfig.printRequestLogger(app);
 
 
 app.use(passport.initialize());
-app.use('/api', indexRouter);
+app.use('/', webRouter);
+app.use('/api/v1', apiRouter);
 
 app.use('/storage', express.static(path.join(__dirname, 'uploads')));
 
 //calling local_strategy
-require("./config/localStrategy");
+appConfig.localStrategy();
 
 //Create Admin user
-require("./config/create_admin");
+appConfig.createAdmin();
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     next(createError(404));
 });
-
+  
 // error handler
 app.use(function(err, req, res, next) {
     // set locals, only providing error in development
